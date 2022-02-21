@@ -1,0 +1,21 @@
+micronaut:
+  application:
+    name: greenlac
+
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+endpoints:
+  health:
+    enabled: true
+    sensitive: false
+    details-visible: ANONYMOUS
+  metrics:
+    enabled: true
+    sensitive: false
+
+greenlac:
+  endpoint-lambda-greengrass: http://localhost:4711
+  endpoint-lambda-core: https://gydrsqutj5.execute-api.us-east-1.amazonaws.com/default/230mb_model_1_image

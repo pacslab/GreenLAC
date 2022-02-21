@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.jaimedantas
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [annotation-api, app-name, http-client, jackson-databind, java, java-application, junit, logback, maven, netty-server, openapi, readme, shade, yaml]
