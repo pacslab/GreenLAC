@@ -1,0 +1,38 @@
+{
+  "RecipeFormatVersion": "2020-01-25",
+  "ComponentName": "GreenLAC-a",
+  "ComponentVersion": "1.0.0",
+  "ComponentType": "aws.greengrass.generic",
+  "ComponentDescription": "AWS Greengrass Lambda Autoscaler Core",
+  "ComponentPublisher": "Jaime Dantas",
+  "ComponentConfiguration": {
+    "DefaultConfiguration": {
+      "greenlac.loadbalancerpolicy ": "core"
+    }
+  },
+  "Manifests": [
+    {
+      "Platform": {
+        "os": "linux"
+      },
+      "Name": "Linux",
+      "Lifecycle": {
+			"Run": "java -jar -Dgreenlac.loadbalancerpolicy={configuration:/greenlac.loadbalancerpolicy} {artifacts:path}/greenlac-0.1.jar "
+      },
+      "Artifacts": [
+        {
+          "Uri": "s3://new-s3-us/greenlac-0.1.jar",
+          "Digest": "YOpJCN1goG0xw8FHhLVZm/RKb8NYPx/TH5ELNpdMJJc=",
+          "Algorithm": "SHA-256",
+          "Unarchive": "NONE",
+          "Permission": {
+            "Read": "OWNER",
+            "Execute": "NONE"
+          }
+        }
+      ]
+    }
+  ],
+  "Lifecycle": {}
+}
+

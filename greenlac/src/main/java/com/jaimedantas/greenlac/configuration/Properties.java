@@ -11,9 +11,9 @@ public class Properties {
 
     String endpointedge;
     String endpointcore;
-    String buffersize;
+    int buffersize;
     String loadbalancerpolicy;
-    String cpuUtilizationthreshold;
-    String memoryutilizationthreshold;
+    int cpuUtilizationthreshold;
+    int memoryutilizationthreshold;
 
 }

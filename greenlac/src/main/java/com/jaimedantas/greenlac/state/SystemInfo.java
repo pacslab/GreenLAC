@@ -37,7 +37,7 @@ public class SystemInfo {
         SystemInfo.incomingRequests.remove(correlationId);
     }
 
-    public int getCurrentBufferSize() {
+    public static int getCurrentBufferSize() {
         return SystemInfo.incomingRequests.size();
     }
 }
