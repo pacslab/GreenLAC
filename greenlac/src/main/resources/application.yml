@@ -1,6 +1,8 @@
 micronaut:
   application:
     name: greenlac
+  server:
+    port: 8080
 
 netty:
   default:
@@ -17,5 +19,9 @@ endpoints:
     sensitive: false
 
 greenlac:
-  endpoint-lambda-greengrass: http://localhost:4711
+  endpoint-lambda-edge: http://localhost:4711
   endpoint-lambda-core: https://gydrsqutj5.execute-api.us-east-1.amazonaws.com/default/230mb_model_1_image
+  buffer-size: 100
+  load-balancer-policy: core
+  cpu-utilization-threshold: 50
+  memory-utilization-threshold: 50
