@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "application.endpoint-lambda-edge",
+      "type": "java.lang.String",
+      "description": "Description for application.endpoint-lambda-edge."
+    },
+    {
+      "name": "application.load-balancer-policy",
+      "type": "java.lang.String",
+      "description": "Description for application.load-balancer-policy."
+    }
+  ] }

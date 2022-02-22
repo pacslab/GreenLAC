@@ -1,7 +1,6 @@
-package com.jaimedantas.state;
+package com.jaimedantas.greenlac.state;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class SystemInfo {
     static double cpuUsagePercentage;
