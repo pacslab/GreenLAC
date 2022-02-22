@@ -6,7 +6,6 @@ import com.jaimedantas.greenlac.configuration.Properties;
 import com.jaimedantas.greenlac.loadbalancer.Lambda;
 import com.jaimedantas.greenlac.model.Payload;
 import com.jaimedantas.greenlac.state.SystemInfo;
-import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ public class Controller {
     Properties properties;
 
     @RequestMapping(value = "/ml", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public ResponseEntity<String> proxy(@RequestBody Payload payload) throws JSONException {
+    public ResponseEntity<String> proxy(@RequestBody Payload payload) {
         ResponseEntity<String> response;
         if (SystemInfo.getCurrentBufferSize() <= properties.getBuffersize()) {
             String correlationId = UUID.randomUUID().toString();

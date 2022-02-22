@@ -3,8 +3,6 @@ package com.jaimedantas.greenlac.loadbalancer;
 
 import com.jaimedantas.greenlac.autoscaler.ScalingEngine;
 import com.jaimedantas.greenlac.model.Payload;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -27,9 +25,8 @@ public class Lambda {
     }
 
 
-    public  ResponseEntity<String>  sendToLambda(Payload payload, String uri) throws JSONException {
+    public  ResponseEntity<String>  sendToLambda(Payload payload, String uri) {
 
-        JSONObject request = new JSONObject();
         Gson gson = new Gson();
         String json = gson.toJson(payload);
         HttpHeaders headers = new HttpHeaders();
