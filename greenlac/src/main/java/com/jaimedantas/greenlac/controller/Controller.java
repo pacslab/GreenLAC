@@ -33,7 +33,7 @@ public class Controller {
     @RequestMapping(value = "/ml", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity<String> proxy(@RequestBody Payload payload) {
         ResponseEntity<String> response;
-        if (SystemInfo.getCurrentBufferSize() <= properties.getBuffersize()) {
+        if (SystemInfo.getCurrentBufferSize() <= Integer.parseInt(properties.getLoadBalancer().getBuffersize())) {
             String correlationId = UUID.randomUUID().toString();
             SystemInfo.addRequest(correlationId, payload);
             logger.info("Request to ml endpoint - " + correlationId);
@@ -42,7 +42,7 @@ public class Controller {
             logger.info("Response to ml endpoint - " + correlationId);
 
         } else {
-            logger.info("Request rejected - buffer full");
+            logger.warn("Request rejected - buffer full");
             response = new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
         }
         return response;

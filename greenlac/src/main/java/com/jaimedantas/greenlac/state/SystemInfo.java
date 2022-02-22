@@ -6,11 +6,25 @@ public class SystemInfo {
     static double cpuUsagePercentage;
     static double memoryUsagePercentage;
     static HashMap<String,Object> incomingRequests;
+    static int remoteEdgeIndex;
+    static int remoteEdges;
 
     public SystemInfo() {
         cpuUsagePercentage = 0;
         memoryUsagePercentage = 0;
         incomingRequests = new HashMap<>();
+        remoteEdgeIndex = 0;
+    }
+
+    public static void setRemoteEdges(int remoteEdges){
+        SystemInfo.remoteEdges = remoteEdges;
+    }
+
+    public static int getRemoteEdgeIndex() {
+        if (remoteEdgeIndex >= SystemInfo.remoteEdges){
+            remoteEdgeIndex=0;
+        }
+        return remoteEdgeIndex++;
     }
 
     public static double getCpuUsagePercentage() {

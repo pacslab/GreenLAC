@@ -14,22 +14,32 @@ public class ScalingEngine {
     Properties properties;
 
     public String requestRoute(){
+
         String uriResponse = null;
-        switch (properties.getLoadbalancerpolicy().toLowerCase(Locale.ROOT).trim()) {
+        boolean shouldScaler = SystemInfo.getCpuUsagePercentage() > Integer.parseInt(properties.getScaling().getUtilizationThreshold().getCpu()) ||
+                SystemInfo.getMemoryUsagePercentage() > Integer.parseInt(properties.getScaling().getUtilizationThreshold().getMemory());
+
+        switch (properties.getScaling().getPolicy().toLowerCase(Locale.ROOT).trim()) {
             case "core":
-                uriResponse = properties.getEndpointcore();
+                uriResponse = properties.getEndpoint().getCore();
                 break;
-            case "core-edge":
-                if (SystemInfo.getCpuUsagePercentage() > properties.getCpuUtilizationthreshold() ||
-                SystemInfo.getMemoryUsagePercentage() > properties.getMemoryutilizationthreshold()) {
-                    uriResponse = properties.getEndpointcore();
+            case "core-edge-pc":
+                if (shouldScaler) {
+                    uriResponse = properties.getEndpoint().getCore();
                 } else {
-                    uriResponse = properties.getEndpointedge();
+                    uriResponse = properties.getEndpoint().getEdges().getLocalEdge();
+                }
+                break;
+            case "core-edge-pe":
+                if (shouldScaler) {
+                    uriResponse = properties.getEndpoint().getEdges().getRemoteEdges().get(SystemInfo.getRemoteEdgeIndex());
+                } else {
+                    uriResponse = properties.getEndpoint().getEdges().getLocalEdge();
                 }
                 break;
             case "edge":
             default:
-                uriResponse = properties.getEndpointedge();
+                uriResponse = properties.getEndpoint().getEdges().getLocalEdge();
         }
         return uriResponse;
     }
