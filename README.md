@@ -5,3 +5,4 @@ with the edge IoT devices running AWS Greengrass Core.
 
 ### Initial Architecture 
 ![](images/architecture.jpg)
+
