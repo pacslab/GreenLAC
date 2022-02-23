@@ -1,38 +1,45 @@
 {
-  "RecipeFormatVersion": "2020-01-25",
-  "ComponentName": "GreenLAC-a",
-  "ComponentVersion": "1.0.0",
-  "ComponentType": "aws.greengrass.generic",
-  "ComponentDescription": "AWS Greengrass Lambda Autoscaler Core",
-  "ComponentPublisher": "Jaime Dantas",
-  "ComponentConfiguration": {
-    "DefaultConfiguration": {
-      "greenlac.loadbalancerpolicy ": "core"
-    }
-  },
-  "Manifests": [
-    {
-      "Platform": {
-        "os": "linux"
-      },
-      "Name": "Linux",
-      "Lifecycle": {
-			"Run": "java -jar -Dgreenlac.loadbalancerpolicy={configuration:/greenlac.loadbalancerpolicy} {artifacts:path}/greenlac-0.1.jar "
-      },
-      "Artifacts": [
-        {
-          "Uri": "s3://new-s3-us/greenlac-0.1.jar",
-          "Digest": "YOpJCN1goG0xw8FHhLVZm/RKb8NYPx/TH5ELNpdMJJc=",
-          "Algorithm": "SHA-256",
-          "Unarchive": "NONE",
-          "Permission": {
-            "Read": "OWNER",
-            "Execute": "NONE"
-          }
-        }
-      ]
-    }
-  ],
-  "Lifecycle": {}
+   "RecipeFormatVersion":"2020-01-25",
+   "ComponentName":"GreenLAC",
+   "ComponentVersion":"1.0.1",
+   "ComponentType":"aws.greengrass.generic",
+   "ComponentDescription":"AWS Greengrass Lambda Autoscaler Core",
+   "ComponentPublisher":"Jaime Dantas",
+   "ComponentConfiguration":{
+      "DefaultConfiguration":{
+         "greenlac.endpoint.core":"https://gydrsqutj5.execute-api.us-east-1.amazonaws.com/default/230mb_model_1_image",
+         "greenlac.endpoint.edges.localEdge":"http://localhost:4711",
+         "greenlac.endpoint.edges.remoteEdges":"http://ec2-35-183-144-137.ca-central-1.compute.amazonaws.com:8080/greenlac/v1/ml",
+         "greenlac.scaling.policy":"core-edge-pc",
+         "greenlac.scaling.utilizationThreshold.cpu":50,
+         "greenlac.scaling.utilizationThreshold.memory":50,
+         "greenlac.loadBalancer.buffersize":100
+      }
+   },
+   "Manifests":[
+      {
+         "Platform":{
+            "os":"linux"
+         },
+         "Name":"Linux",
+         "Lifecycle":{
+            "Run":"java -jar -Dgreenlac.scaling.policy={configuration:/greenlac.loadbalancerpolicy} {artifacts:path}/greenlac-0.1.jar "
+         },
+         "Artifacts":[
+            {
+               "Uri":"s3://new-s3-us/greenlac-0.1.jar",
+               "Digest":"YOpJCN1goG0xw8FHhLVZm/RKb8NYPx/TH5ELNpdMJJc=",
+               "Algorithm":"SHA-256",
+               "Unarchive":"NONE",
+               "Permission":{
+                  "Read":"OWNER",
+                  "Execute":"NONE"
+               }
+            }
+         ]
+      }
+   ],
+   "Lifecycle":{
+      
+   }
 }
-

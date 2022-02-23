@@ -1,5 +1,7 @@
 package com.jaimedantas.greenlac.state;
 
+import lombok.SneakyThrows;
+
 import java.util.HashMap;
 
 public class SystemInfo {
@@ -33,6 +35,12 @@ public class SystemInfo {
 
     public static void setCpuUsagePercentage(double cpuUsagePercentage) {
         SystemInfo.cpuUsagePercentage = cpuUsagePercentage;
+    }
+
+    @SneakyThrows
+    public static void resetBufferIn60s(){
+        Thread.sleep(60000);
+        incomingRequests.clear();
     }
 
     public static double getMemoryUsagePercentage() {

@@ -13,9 +13,9 @@ greenlac:
         - http://ec2-35-183-144-137.ca-central-1.compute.amazonaws.com:8080/greenlac/v1/ml
 
   scaling:
-    policy: edge # core-edge-pc, core-edge-pe, edge, core
+    policy: core-edge-pc # core-edge-pc, core-edge-pe, edge, core
     utilizationThreshold:
-      cpu: 10
+      cpu: 50
       memory: 50
 
   loadBalancer:

@@ -44,6 +44,8 @@ public class Controller {
         } else {
             logger.warn("Request rejected - buffer full");
             response = new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
+            SystemInfo.resetBufferIn60s();
+
         }
         return response;
 
