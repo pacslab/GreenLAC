@@ -4,7 +4,7 @@ for AWS Greengrass that leverages core resources for scaling AWS Lambdas in comb
 with the edge IoT devices running AWS Greengrass Core.
 
 ## Architecture
-GreenLAC is a [AWS Greengrass component](https://github.com/aws-greengrass/aws-greengrass-software-catalog#community-components) that will 
+GreenLAC is an [AWS Greengrass component](https://github.com/aws-greengrass/aws-greengrass-software-catalog#community-components) that will 
 soon be available to the community. It uses the core component of Greengrass, the Nucleus, to forward requests to local Lambdas managed by the 
 Lambda Manager. GreenGrass scales out Lambdas in the Core cloud whenever its local resources reach saturation. 
 
