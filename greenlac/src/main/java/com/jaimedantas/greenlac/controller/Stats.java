@@ -15,10 +15,21 @@ import java.io.IOException;
 @RequestMapping("/greenlac/v1")
 public class Stats {
 
-    @RequestMapping(value = "/stats", method = RequestMethod.GET, produces = "text/csv")
-    public ResponseEntity exportCSV() throws IOException {
+    @RequestMapping(value = "/stats/history", method = RequestMethod.GET, produces = "text/csv")
+    public ResponseEntity exportCSVHistory() throws IOException {
 
         File path = new File("history.csv");
+        return getResponseEntity(path);
+    }
+
+    @RequestMapping(value = "/stats/uri", method = RequestMethod.GET, produces = "text/csv")
+    public ResponseEntity exportCSVUri() throws IOException {
+
+        File path = new File("uri.csv");
+        return getResponseEntity(path);
+    }
+
+    private ResponseEntity getResponseEntity(File path) throws IOException {
         FileInputStream fl = new FileInputStream(path);
         byte[] arr = new byte[(int) path.length()];
         fl.read(arr);

@@ -4,13 +4,14 @@ for AWS Greengrass that leverages core resources for scaling AWS Lambdas in comb
 with the edge IoT devices running AWS Greengrass Core.
 
 ## Architecture
-GreenLAC is an [AWS Greengrass component](https://github.com/aws-greengrass/aws-greengrass-software-catalog#community-components) that will 
-soon be available to the community. It uses the core component of Greengrass, the Nucleus, to forward requests to local Lambdas managed by the 
-Lambda Manager. GreenGrass scales out Lambdas in the Core cloud whenever its local resources reach saturation. 
+GreenLAC is an [AWS Greengrass Component](https://github.com/aws-greengrass/aws-greengrass-software-catalog#community-components) that will 
+soon be available to the dev community. It uses the core component of Greengrass, Nucleus, to forward requests to local Lambdas managed by the 
+Lambda Manager. Greengrass scales out Lambdas in the core cloud whenever its local resources reach saturation, and it can also send requests to
+other edge nodes. 
 
 ![](images/architecture.jpg)
 ## Build Instruction
-
+The build process of GreenLAC is the same used for any AWS Greengrass component. 
 ### Download
 ```
 git clone https://github.com/pacslab/GreenLAC.git
@@ -22,29 +23,31 @@ git clone https://github.com/pacslab/GreenLAC.git
 - AWS Greengrass CLI
 
 ### Build From Source
-Please make sure Java 11 and Maven are installed before building the package. To build package, run:
+Please make sure Java 11 and Maven 3 are installed before building the package. To build package, run:
 
 ```
 mvn clean package
 ```
 
-You need to upload the ``greenlac.jar`` to a S3 Bucket on AWS.
+You need to upload the ``greenlac.jar`` to an S3 Bucket on AWS.
 
 ## Component Deployment on AWS 
 We have provided the JSON recipe for deployment [here](https://github.com/pacslab/GreenLAC/blob/main/greengrass/deployment.json). Please make sure to 
-change any configuration and parameters according to your deployment needs. 
+change any configuration and parameters according to your deployment needs. Below you can see some of the many configuration parameters of 
+GreenLAC
 ```json
   "ComponentConfiguration": {
     "DefaultConfiguration": {
 		"greenlac.endpoint.core": "https://gydrsqutj5.execute-api.us-east-1.amazonaws.com/default/230mb_model_1_image",
 		"greenlac.scaling.policy": "core-edge-pc",
 		"greenlac.scaling.utilizationThreshold.cpu": 50,
-		"greenlac.loadBalancer.buffersize": 100
+		"greenlac.loadBalancer.buffersize": 100,
+        [...]
     }
   }
 ```
 ## Log Debug
-On device running Greengrass core, logs are stored in specific greengrass folder.
+Logs are stored in the default Greengrass folder inside the device which is running the Greengrass core component.
 For GreenLAC log, check /greengrass/v2/logs/GrenLAC.log
 ```log
 2022-02-23T01:36:25.149Z [INFO] (Copier) GreenLAC-a: stdout. [30m2022-02-23 01:36:25,147 INFO  [http-nio-8080-exec-18] com.jaimedantas.greenlac.loadbalancer.Lambda: Sending request to: https://gydrsqutj5.execute-api.us-east-1.amazonaws.com/default/230mb_model_1_image. {scriptName=services.GreenLAC-a.lifecycle.Run, serviceName=GreenLAC-a, currentState=RUNNING}

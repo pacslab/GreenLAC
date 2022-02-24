@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.UUID;
 
 @RestController
@@ -31,7 +32,7 @@ public class Controller {
     Properties properties;
 
     @RequestMapping(value = "/ml", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public ResponseEntity<String> proxy(@RequestBody Payload payload) {
+    public ResponseEntity<String> proxy(@RequestBody Payload payload) throws IOException {
         ResponseEntity<String> response;
         if (SystemInfo.getCurrentBufferSize() <= Integer.parseInt(properties.getLoadBalancer().getBuffersize())) {
             String correlationId = UUID.randomUUID().toString();

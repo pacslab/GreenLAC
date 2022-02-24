@@ -9,14 +9,14 @@ greenlac:
     core: https://gydrsqutj5.execute-api.us-east-1.amazonaws.com/default/230mb_model_1_image
     edges:
       localEdge: http://localhost:4711
-      remoteEdges:
-        - http://ec2-35-183-144-137.ca-central-1.compute.amazonaws.com:8080/greenlac/v1/ml
+      remoteEdges: #list here all endge endpoints
+        - http://ec2-3-98-124-7.ca-central-1.compute.amazonaws.com:8080/greenlac/v1/ml
 
   scaling:
-    policy: core-edge-pc # core-edge-pc, core-edge-pe, edge, core
+    policy: core-edge-pc # algorithms: core-edge-pc, core-edge-pe, edge, core
     utilizationThreshold:
-      cpu: 50
-      memory: 50
+      cpu: 40
+      memory: 40
 
   loadBalancer:
     buffersize: 100
