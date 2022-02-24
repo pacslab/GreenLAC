@@ -64,8 +64,8 @@ core = 302;
 	
 f8 = figure;
 value = [pi ec2 core];
-X = categorical({'Edge Pi','Edge EC2','Core'});
-X = reordercats(X,{'Edge Pi','Edge EC2','Core'});
+X = categorical({'Edge Pi','Edge EC2','AWS Core'});
+X = reordercats(X,{'Edge Pi','Edge EC2','AWS Core'});
 b = bar(X,value, 0.5);
 hold on
 

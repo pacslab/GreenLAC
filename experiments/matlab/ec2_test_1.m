@@ -45,7 +45,7 @@ plot(t,cpu_1,'-', 'color', 'm','MarkerIndices',250:1000:6500,'MarkerSize',8,'Lin
 %set(gca,'xtick',[0:500:6500],'FontSize',15)
 xlim([0 600])
 ylim([0 100])
-title('(d)','FontSize',18);
+title('(c)','FontSize',18);
 ylabel('CPU Utilization (%)','FontSize',18) 
 xlabel('Time (s)','FontSize',18) 
 set(a,'location','best')
@@ -78,7 +78,7 @@ plot(t,total_error_1,'-', 'color', 'g','MarkerSize',8,'LineWidth',2);
 %set(gca,'xtick',[0:500:6500],'FontSize',15)
 xlim([0 600])
 ylim([0 12])
-title('(d)','FontSize',18);
+title('(e)','FontSize',18);
 ylabel('# of Rejected Requests','FontSize',18) 
 xlabel('Time (s)','FontSize',18) 
 set(a,'location','best')
@@ -89,8 +89,8 @@ print -depsc cpu_1
 % bar chart number requests
 f8 = figure;
 value = [4321 5614];
-X = categorical({'Edge','Core'});
-X = reordercats(X,{'Edge','Core'});
+X = categorical({'Edge EC2','AWS Core'});
+X = reordercats(X,{'Edge EC2','AWS Core'});
 b = bar(X,value, 0.5);
 hold on
 
