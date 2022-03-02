@@ -1,7 +1,6 @@
 # GreenLAC
-The AWS Greengrass Lambda Autoscaler Core (GreenLAC) is a load balancer and autoscaler
-for AWS Greengrass that leverages core resources for scaling AWS Lambdas in combination
-with the edge IoT devices running AWS Greengrass Core.
+The AWS Greengrass Lambda Autoscaler Core (GreenLAC) is a load balancer and reverse proxy for supporting serverless deployments of edge-core IoT applications with AWS Greengrass.
+GreenLAC enablers applications on resource-constrained edge nodes to leverage neighbours edge nodes and the core cloud for real-time processing of workloads.
 
 ## Architecture
 GreenLAC is an [AWS Greengrass Component](https://github.com/aws-greengrass/aws-greengrass-software-catalog#community-components) that will 
@@ -56,7 +55,9 @@ For GreenLAC log, check /greengrass/v2/logs/GrenLAC.log
 
 ```
 ## Citation
-This is work is currently under review.
+This is work is currently under review. Please cite this work as followed:
+Jaime Dantas, Hamzeh Khazaei and Marin Litoiu. 2022. GreenLAC: Resource-Aware Dynamic Load balancer for Serverless Edge Computing Platforms with AWS Greengrass. Source code: 
+[https://github.com/pacslab/GreenLAC](https://github.com/pacslab/GreenLAC)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

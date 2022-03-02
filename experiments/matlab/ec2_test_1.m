@@ -45,9 +45,9 @@ plot(t,cpu_1,'-', 'color', 'm','MarkerIndices',250:1000:6500,'MarkerSize',8,'Lin
 %set(gca,'xtick',[0:500:6500],'FontSize',15)
 xlim([0 600])
 ylim([0 100])
+set(gca, 'XTickLabel', [])
 title('(c)','FontSize',18);
 ylabel('CPU Utilization (%)','FontSize',18) 
-xlabel('Time (s)','FontSize',18) 
 set(a,'location','best')
 
 f3.Position = [10 10 900 250]; 
@@ -64,8 +64,8 @@ xlim([0 600])
 ylim([0 7])
 title('(d)','FontSize',18);
 ylabel('Buffer Size (req)','FontSize',18) 
-xlabel('Time (s)','FontSize',18) 
 set(a,'location','best')
+set(gca, 'XTickLabel', [])
 
 f3.Position = [10 10 900 250]; 
 print -depsc buffer_1
@@ -84,7 +84,7 @@ xlabel('Time (s)','FontSize',18)
 set(a,'location','best')
 
 f3.Position = [10 10 900 250]; 
-print -depsc cpu_1
+print -depsc error
 
 % bar chart number requests
 f8 = figure;
@@ -102,7 +102,6 @@ set(gca,'FontSize',15,'YColor','k','TickLength',[0 0])
 
 
 
-title('Request Distribution','FontSize',18);
 ylabel('# of Requests','FontSize',18);
 
 

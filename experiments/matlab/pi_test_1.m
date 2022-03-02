@@ -16,7 +16,7 @@ print -depsc req_load_1_pi
 % av and 95th
 f2 = figure;
 
-plot(t,req_av_2/1000,'-', 'color', 'r','MarkerIndices',250:1000:length(req_av_1), 'MarkerSize',8,'LineWidth',2);
+plot(t,req_av_2/1000,'-', 'color', 'r','MarkerIndices',250:1000:length(req_av_2), 'MarkerSize',8,'LineWidth',2);
 hold on
 plot(t,req_95th_2/1000,'--', 'color', 'b','MarkerIndices',250:1000:6500, 'MarkerSize',8,'LineWidth',2);
 hold off
@@ -78,7 +78,6 @@ set(gca,'FontSize',15,'YColor','k','TickLength',[0 0])
 
 
 
-title('Request Distribution','FontSize',18);
 ylabel('# of Requests','FontSize',18);
 
 
