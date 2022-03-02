@@ -56,6 +56,7 @@ For GreenLAC log, check /greengrass/v2/logs/GrenLAC.log
 ```
 ## Citation
 This is work is currently under review. Please cite this work as followed:
+
 Jaime Dantas, Hamzeh Khazaei and Marin Litoiu. 2022. GreenLAC: Resource-Aware Dynamic Load balancer for Serverless Edge Computing Platforms with AWS Greengrass. Source code: 
 [https://github.com/pacslab/GreenLAC](https://github.com/pacslab/GreenLAC)
 
