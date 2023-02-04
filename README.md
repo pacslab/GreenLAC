@@ -57,9 +57,21 @@ For GreenLAC log, check /greengrass/v2/logs/GrenLAC.log
 ## Citation
 Please cite this work as followed:
 
-Dantas Jaime, Khazaei Hamzeh, and Litoiu Marin. 2023. Green LAC: Resource-Aware Dynamic Load Balancer for Serverless Edge Computing Platforms. 
-In Proceedings of the 32nd Annual International Conference on Computer Science and Software Engineering (CASCON '22). IBM Corp., USA, 169–174.
-https://dl.acm.org/doi/10.5555/3566055.3566075
+```
+@inproceedings{10.5555/3566055.3566075,
+author = {Jaime, Dantas and Hamzeh, Khazaei and Marin, Litoiu},
+title = {Green LAC: Resource-Aware Dynamic Load Balancer for Serverless Edge Computing Platforms},
+year = {2023},
+publisher = {IBM Corp.},
+address = {USA},
+booktitle = {Proceedings of the 32nd Annual International Conference on Computer Science and Software Engineering},
+pages = {169–174},
+numpages = {6},
+keywords = {Edge Computing, AWS Greengrass, IoT, Serverless Computing, Function as a Service},
+location = {Toronto, Canada},
+series = {CASCON '22}
+}
+```
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
